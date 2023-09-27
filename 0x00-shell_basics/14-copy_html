@@ -1,2 +1,2 @@
 #!/bin/bash
-for f in *.html; do cp -u "$f" "$(dirname "$(pwd)")/$f"
+cp -u *.html alx-system_engneering-devops
