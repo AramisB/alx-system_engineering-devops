@@ -1,2 +1,2 @@
 #!/bin/bash
-chown betty hello --reference=/home/betty
+chown betty hello --reference=/home/guillaume
