@@ -3,6 +3,6 @@
 phrase="Best School"
 times=10
 
-for i in $(seq $times); do
+for ((i = 0; i < times; i++)); do
 	echo "$phrase"
 done
