@@ -1,11 +1,8 @@
 #!/usr/bin/env bash
 # Bash script that displays: 
 # the content of the current directory in a list format
-for filename in *; do
-  if [[ $filename == .* ]]; then
-    continue
-  fi
 
-  name="${filename##*-}"
-  echo "$name"
+list=$(ls)
+for i in $list; do
+  echo "$i" | cut -d '-' -f2
 done
