@@ -5,10 +5,10 @@
 phrase="Best School"
 times=10
 while [ $times -gt 0 ]; do
-        if [ $times -eq 2 ]; then
-		echo "Hi"
-	else 
-		echo "$phrase"
+       	echo "$phrase"
+
+	if [ $times -eq 2 ]; then
+                echo "Hi"
 	fi
 
         ((times--))
