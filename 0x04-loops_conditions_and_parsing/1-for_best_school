@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+# This script is displaying "Best School" 10 times
+phrase="Best School"
+times=10
+
+for i in $(seq $times); do
+	echo "$phrase"
+done
