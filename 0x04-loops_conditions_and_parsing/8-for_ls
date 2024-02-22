@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+# Bash script that displays: 
+# the content of the current directory in a list format
+for filename in *; do
+  if [[ $filename == .* ]]; then
+    continue
+  fi
+
+  name="${filename##*-}"
+  echo "$name"
+done
