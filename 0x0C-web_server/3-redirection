@@ -4,7 +4,8 @@
 # Serve a page that would return a Hello World string
 #
 
-sudo apt-get update -y -qq 
+
+sudo apt-get update -y -qq
 sudo apt-get install nginx -y
 
 # starting nginx service
@@ -21,7 +22,10 @@ sudo chmod -R 755 /var/www
 cp /var/www/html/index.nginx-debian.html /var/www/html/index.nginx-debian.html.bckp
 
 # Creating new index
-echo -e "Hello World!" | dd status=none of=/var/www/html/index.nginx-debian.html
+echo -e "Hello World!" > /var/www/html/index.nginx-debian.html
+
+# Setting up /redirect_me to a youtube video
+sudo sed -i '24i\       rewrite ^/redirect_me https://www.w3schools.com/ permanent;' /etc/nginx/sites-available/default
 
 # Restarting nginx
 sudo service nginx restart
