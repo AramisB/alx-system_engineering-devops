@@ -1,0 +1,15 @@
+[0;1;31m●[0m apache2.service - The Apache HTTP Server
+     Loaded: loaded (/lib/systemd/system/apache2.service; enabled; vendor preset: enabled)
+     Active: [0;1;31mfailed[0m (Result: exit-code) since Tue 2024-04-23 13:46:19 EAT; 1min 30s ago
+       Docs: https://httpd.apache.org/docs/2.4/
+
+Apr 23 13:46:19 Chemu systemd[1]: Starting The Apache HTTP Server...
+Apr 23 13:46:19 Chemu apachectl[6232]: (98)Address already in use: AH00072: make_sock: could not bind to address [::]:80
+Apr 23 13:46:19 Chemu apachectl[6232]: (98)Address already in use: AH00072: make_sock: could not bind to address 0.0.0.0:80
+Apr 23 13:46:19 Chemu apachectl[6232]: no listening sockets available, shutting down
+Apr 23 13:46:19 Chemu apachectl[6232]: AH00015: Unable to open logs
+Apr 23 13:46:19 Chemu apachectl[6222]: Action 'start' failed.
+Apr 23 13:46:19 Chemu apachectl[6222]: The Apache error log may have more information.
+Apr 23 13:46:19 Chemu systemd[1]: [0;1;39m[0;1;31m[0;1;39mapache2.service: Control process exited, code=exited, status=1/FAILURE[0m
+Apr 23 13:46:19 Chemu systemd[1]: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mapache2.service: Failed with result 'exit-code'.[0m
+Apr 23 13:46:19 Chemu systemd[1]: [0;1;31m[0;1;39m[0;1;31mFailed to start The Apache HTTP Server.[0m
