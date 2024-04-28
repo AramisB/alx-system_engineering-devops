@@ -24,9 +24,6 @@ sudo cp /var/www/html/index.nginx-debian.html /var/www/html/index.nginx-debian.h
 # Create a new index with "Hello World!"
 echo "Hello World!" | sudo tee /var/www/html/index.nginx-debian.html >/dev/null
 
-# Configure redirection in Nginx
-sudo sed -i '24i\       rewrite ^/redirect_me https://www.youtube.com/watch?v=QH2-TGUlwu4 permanent;' /etc/nginx/sites-available/default
-
 # Restart Nginx
 sudo service nginx restart
 
