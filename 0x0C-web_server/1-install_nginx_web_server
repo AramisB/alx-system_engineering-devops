@@ -13,6 +13,9 @@ echo -e "\nSetting up some minor stuff.\n"
 # starting nginx service
 sudo service nginx start
 
+# Allow SSH connections to avoid being locked out
+sudo ufw allow OpenSSH
+
 # allowing nginx on firewall
 sudo ufw allow 'Nginx HTTP'
 
@@ -29,4 +32,4 @@ echo -e "Hello World!" | suddd status=none of=/var/www/html/index.nginx-debian.h
 # Restarting nginx
 sudo service nginx restart
 
-echo -e "\nCompleted. ✅\n"
+echo -e "\nCompleted.\n"
