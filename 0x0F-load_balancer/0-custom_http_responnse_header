@@ -1,0 +1,28 @@
+#!/usr/bin/env bash
+
+# Install Nginx
+sudo apt-get update -y -qq && sudo apt-get install nginx -y
+
+# Start Nginx service
+sudo service nginx start
+
+# Allow SSH connections to avoid being locked out
+sudo ufw allow OpenSSH
+
+# Allow Nginx on firewall
+sudo ufw allow 'Nginx HTTP'
+
+# Give the user ownership to website files for easy editing
+sudo chown -R "$USER":"$USER" /var/www/html
+sudo chmod -R 755 /var/www
+
+# Backup default Nginx configuration
+sudo cp /etc/nginx/sites-available/default /etc/nginx/sites-available/default.bak
+
+# Configure custom HTTP response header in Nginx
+sudo sed -i '/server_name _;/a \ \ \ \ add_header X-Served-By $hostname;' /etc/nginx/sites-available/default
+
+# Restart Nginx
+sudo service nginx restart
+
+echo "Nginx configured with custom HTTP response header."
