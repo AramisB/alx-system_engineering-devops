@@ -1,0 +1,18 @@
+
+server {
+    listen 80 default_server;
+    listen [::]:80 default_server;
+
+    root /var/www/html;
+    index index.html index.nginx-debian.html;
+
+    server_name _;
+        error_page 404 /404.html;
+
+    location / {
+        rewrite ^/redirect_me https://www.example.com/ permanent;
+        rewrite ^/redirect_me https://www.example.com/ permanent;
+        rewrite ^/redirect_me https://www.example.com/ permanent;
+        try_files $uri $uri/ =404;
+    }
+}
