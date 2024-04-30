@@ -1,8 +1,5 @@
 #!/usr/bin/env bash
 # configures nginx to listen to port 80
-
-# create a symbolic link
 sudo ln -sf /etc/nginx/sites-available/default /etc/nginx/sites-enabled/default
-
-# restart nginx
 sudo service nginx restart
+sudo service nginx status || echo "nginx is not running"
