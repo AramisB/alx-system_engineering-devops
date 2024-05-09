@@ -3,6 +3,7 @@ defaults
     timeout connect 10s
     timeout client  15s
     timeout server  15s
+    timeout http-request 10s
 
 frontend chemu-tech-frontend
     bind *:80
