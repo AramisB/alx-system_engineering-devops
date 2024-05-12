@@ -5,13 +5,13 @@ defaults
     timeout server  15s
     timeout http-request 10s
 
-frontend chemu-tech-frontend
+frontend clickviral-tech-frontend
     bind *:80
     bind *:443 ssl crt /etc/haproxy/certs/www.chemu.tech.pem   
     redirect scheme https if !{ ssl_fc }
-    default_backend chemu-tech-backend
+    default_backend clickviral-tech-backend
 
-backend chemu-tech-backend
+backend clickviral-tech-backend
     balance roundrobin
     server 531591-web-01 54.172.126.130:80 check
     server 531591-web-02 52.90.15.79:80 check
