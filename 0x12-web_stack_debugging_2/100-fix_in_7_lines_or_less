@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # a script that configures nginx.config file so that Nginx is running as the nginx user
 # Update Nginx configuration to run as nginx user
-sed -i 's/^user .*/user nginx;/' /etc/nginx/nginx.conf
+sed -i 's/^user .*/user nginx/' /etc/nginx/nginx.conf
 sed -i 's/80/8080/g' /etc/nginx/sites-available/default
 systemctl restart nginx
