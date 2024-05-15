@@ -1,11 +1,9 @@
 #!/usr/bin/env bash
-# a script that configures nginx.config file so that Nginx is running as the nginx user
+# Fixes server bug
+chmod 644 /etc/nginx/nginx.conf
+sed -Ei 's/\s*#?\s*user .*/user nginx;/' /etc/nginx/nginx.conf
+sed -Ei 's/(listen (\[::\]:)?80) /\180 /' /etc/nginx/sites-enabled/default
+pkill apache2
+# restart
+su nginx -s /bin/bash -c 'service nginx restart'
 
-# Update Nginx configuration to run as nginx user
-sed -i 's/^user .*/user nginx;/' /etc/nginx/nginx.conf
-
-# Update Nginx configuration to listen on port 8080 for all active IPs
-sed -i 's/80/8080/g' /etc/nginx/sites-available/default
-
-# Restart Nginx service
-systemctl restart nginx
