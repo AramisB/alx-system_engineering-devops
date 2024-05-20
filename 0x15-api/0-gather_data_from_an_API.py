@@ -7,10 +7,8 @@ import requests
 import sys
 
 
-def employee_todo_progress(employee_id):
-    """
-    displays on the standard output the employee TODO list progress
-    """
+if __name__ == "__main__":
+    employee_id = int(sys.argv[1])
     base_url = "https://jsonplaceholder.typicode.com/"
 
     employee_url = f'{base_url}/users/{employee_id}'
@@ -26,16 +24,7 @@ def employee_todo_progress(employee_id):
     num_of_tasks_done = len(done_tasks)
 
     employee_name = employee['name']
-    print(f'Employee {employee_name} is done with tasks\
-          ({num_of_tasks_done}/{total_tasks}):')
+    print(f'Employee {employee_name} is done with tasks '
+          f'{num_of_tasks_done}/{total_tasks}):')
     for task in done_tasks:
         print(f"\t {task['title']}")
-
-
-if __name__ == "__main__":
-    try:
-        employee_id = int(sys.argv[1])
-        employee_todo_progress(employee_id)
-    except ValueError:
-        print("employee_id must be an integer")
-        sys.exit(1)
