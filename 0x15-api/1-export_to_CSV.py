@@ -6,10 +6,12 @@ import csv
 import requests
 import sys
 
-
 if __name__ == "__main__":
+    if len(sys.argv) != 2:
+        sys.exit(1)
+
     employee_id = int(sys.argv[1])
-    base_url = "https://jsonplaceholder.typicode.com/"
+    base_url = "https://jsonplaceholder.typicode.com"
 
     employee_url = f'{base_url}/users/{employee_id}'
     response = requests.get(employee_url)
@@ -19,17 +21,11 @@ if __name__ == "__main__":
     response = requests.get(todos_url)
     todos = response.json()
 
-    total_tasks = len(todos)
-    done_tasks = [task for task in todos if task['completed']]
-    num_of_tasks_done = len(done_tasks)
-
-    employee_name = employee['name']
     filename = f"{employee_id}.csv"
-    for task in done_tasks:
-        with open(filename, "w", newline="") as csvfile:
-            writer = csv.writer(csvfile, quoting=csv.QUOTE_ALL)
-            writer.writerow(["employee_id", "employee_name",
-                             "task_completed", "title"])
-            for task in todos:
-                writer.writerow([employee_id, employee_name,
-                                 task['completed'], task['title']])
+    with open(filename, "w", newline="") as csvfile:
+        writer = csv.writer(csvfile, quoting=csv.QUOTE_ALL)
+        writer.writerow(["employee_id", "employee_name",
+                         "task_completed", "title"])
+        for task in todos:
+            writer.writerow([employee_id, employee['name'],
+                             task['completed'], task['title']])
