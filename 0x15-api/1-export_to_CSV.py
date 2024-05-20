@@ -21,11 +21,13 @@ if __name__ == "__main__":
     response = requests.get(todos_url)
     todos = response.json()
 
-    filename = f"{employee_id}.csv"
-    with open(filename, "w", newline="") as csvfile:
-        writer = csv.writer(csvfile, quoting=csv.QUOTE_ALL)
-        writer.writerow(["employee_id", "employee_name",
-                         "task_completed", "title"])
+    employee_name = employee['name']
+    csv_filename = f"{employee_id}.csv"
+    with open(csv_filename, mode='w', newline='') as csvfile:
+        csv_writer = csv.writer(csvfile, quoting=csv.QUOTE_ALL)
+        csv_writer.writerow(["USER_ID", "USERNAME",
+                             "TASK_COMPLETED_STATUS", "TASK_TITLE"])
+
         for task in todos:
-            writer.writerow([employee_id, employee['name'],
-                             task['completed'], task['title']])
+            csv_writer.writerow([employee_id, employee_name,
+                                 task["completed"], task["title"]])
