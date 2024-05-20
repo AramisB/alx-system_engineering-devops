@@ -23,8 +23,11 @@ if __name__ == "__main__":
 
     employee_name = employee['name']
     csv_filename = f"{employee_id}.csv"
-    with open(csv_filename, mode='w', newline='') as csvfile:
-        csv_writer = csv.writer(csvfile, quoting=csv.QUOTE_ALL)
+    with open('{}.csv'.format(employee_id), 'w') as csvfile:
         for task in todos:
-            csv_writer.writerow([employee_id, employee_name,
-                                 task["completed"], task["title"]])
+            completed = task.get('completed')
+            """Complete"""
+            title_task = task.get('title')
+            """Done"""
+            csvfile.write('"{}","{}","{}","{}"\n'.format(
+                employee_id, employee_name, completed, title_task))
