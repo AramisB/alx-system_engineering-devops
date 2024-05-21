@@ -9,7 +9,7 @@ import sys
 if __name__ == "__main__":
     base_url = "https://jsonplaceholder.typicode.com"
 
-    employees_url = f'{base_url}/users/'
+    employees_url = f'{base_url}/users'
     response = requests.get(employees_url)
     employees = response.json()
 
@@ -19,7 +19,7 @@ if __name__ == "__main__":
         employee_id = employee['id']
         employee_name = employee['username']
 
-        todos_url = f'{base_url}/todos?userId={employee_id}'
+        todos_url = f'{base_url}/todos'
         response = requests.get(todos_url)
         todos = response.json()
 
