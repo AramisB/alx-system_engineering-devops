@@ -4,7 +4,6 @@ A script that exports data to json
 """
 import json
 import requests
-import sys
 
 if __name__ == "__main__":
     base_url = "https://jsonplaceholder.typicode.com"
@@ -19,16 +18,16 @@ if __name__ == "__main__":
         employee_id = employee['id']
         employee_name = employee['username']
 
-        todos_url = f'{employees_url}/todos/'
+        todos_url = f'{employees_url}/{employee_id}/todos/'
         response = requests.get(todos_url)
         todos = response.json()
 
         user_dict_data = []
         for task in todos:
             dict_data = {
+                "username": employee_name,
                 "task": task["title"],
                 "completed": task["completed"],
-                "username": employee_name,
                 }
             user_dict_data.append(dict_data)
         all_users_dict_data[employee_id] = user_dict_data
