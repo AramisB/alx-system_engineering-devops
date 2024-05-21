@@ -17,7 +17,7 @@ if __name__ == "__main__":
     response = requests.get(employee_url)
     employee = response.json()
 
-    todos_url = f'{base_url}/todos?userId={employee_id}'
+    todos_url = f'{employee_url}/todos'
     response = requests.get(todos_url)
     todos = response.json()
 
