@@ -26,7 +26,7 @@ if __name__ == "__main__":
         user_dict_data = []
         for task in todos:
             dict_data = {
-                "title": task["title"],
+                "task": task["title"],
                 "completed": task["completed"],
                 "username": employee_name,
                 }
