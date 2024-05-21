@@ -26,7 +26,7 @@ if __name__ == "__main__":
     dict_data = {employee_id: []}
     for task in todos:
         dict_data[employee_id].append({
-            "title": task["title"],
+            "task": task["title"],
             "completed": task["completed"],
             "username": employee_name,
             })
