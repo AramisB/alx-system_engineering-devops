@@ -2,7 +2,6 @@
 """
 A script that exports data to CSV
 """
-import csv
 import requests
 import sys
 
@@ -21,7 +20,7 @@ if __name__ == "__main__":
     response = requests.get(todos_url)
     todos = response.json()
 
-    employee_name = employee['name']
+    employee_name = employee['username']
     csv_filename = f"{employee_id}.csv"
     with open('{}.csv'.format(employee_id), 'w') as csvfile:
         for task in todos:

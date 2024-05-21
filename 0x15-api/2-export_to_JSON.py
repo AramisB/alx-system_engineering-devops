@@ -21,7 +21,7 @@ if __name__ == "__main__":
     response = requests.get(todos_url)
     todos = response.json()
 
-    employee_name = employee['name']
+    employee_name = employee['username']
     json_filename = f"{employee_id}.json"
     dict_data = {employee_id: []}
     for task in todos:
